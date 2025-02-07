@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeadlinesAI Generator</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #f5f5f5;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Form Styling */
+        .headlines-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #2c2c2c;
+            border: 2px solid #e63946;
+            border-radius: 5px;
+            color: #f5f5f5;
+        }
+
+        /* Radio Button Styling */
+        .radio-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .radio-group input[type="radio"] {
+            display: none;
+        }
+
+        .radio-group label {
+            background-color: #2c2c2c;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .radio-group input[type="radio"]:checked + label {
+            background-color: #e63946;
+            color: #f5f5f5;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #e63946;
+            color: #f5f5f5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #c72d3f;
+        }
+
+        /* Output Section */
+        #generated-content {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2c2c2c;
+            border-radius: 5px;
+            min-height: 100px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .headlines-form {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .radio-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form class="headlines-form" id="headlines-generator">
+        <div class="form-group">
+            <label for="company-name">Company Name</label>
+            <input type="text" id="company-name" name="company-name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="product">Product</label>
+            <input type="text" id="product" name="product" required>
+        </div>
+
+        <div class="form-group">
+            <label>Select Platform</label>
+            <div class="radio-group platform-group">
+                <input type="radio" id="youtube" name="platform" value="YouTube">
+                <label for="youtube">YouTube</label>
+                
+                <input type="radio" id="medium" name="platform" value="Medium">
+                <label for="medium">Medium</label>
+                
+                <input type="radio" id="reddit" name="platform" value="Reddit">
+                <label for="reddit">Reddit</label>
+                
+                <input type="radio" id="indie-hackers" name="platform" value="IndieHackers">
+                <label for="indie-hackers">IndieHackers</label>
+                
+                <input type="radio" id="blog" name="platform" value="Blog">
+                <label for="blog">Blog</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Content Type</label>
+            <div class="radio-group content-type-group">
+                <input type="radio" id="headlines" name="content-type" value="Headlines">
+                <label for="headlines">Headlines</label>
+                
+                <input type="radio" id="call-to-action" name="content-type" value="CallToAction">
+                <label for="call-to-action">Call to Action</label>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Generate Content</button>
+
+        <div id="generated-content">
+            <!-- Generated headlines will appear here -->
+        </div>
+    </form>
+    <script src="script.js"></script>
+   
+</body>
+</html>
